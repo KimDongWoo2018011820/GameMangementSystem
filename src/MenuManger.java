@@ -65,7 +65,7 @@ public class MenuManger {
 	    	        System.out.print("Game Type :");
 	    	        Game_type = input.next();
 	    	        
-	         	    System.out.print("Game Playtime :");
+	                System.out.print("Game Playtime :");
 	         	    Game_playtime = input.nextInt();
 	   
 	    	        System.out.print("Game Distributor :");
@@ -85,6 +85,7 @@ public class MenuManger {
 			  System.out.println("Game Playtime :" + Game_playtime + " hour");
 			  System.out.println("Game Distributor :" + Game_distributor);
 			  System.out.println("Game Price :" + Game_price + " $");
+			  System.out.println(" ");
 		}
 	}
 
