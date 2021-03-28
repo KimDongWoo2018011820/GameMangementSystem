@@ -5,9 +5,6 @@ public class MenuManger {
 	public static void main(String[] args) {
 		int num =0;
 		int input_time=0;
-		String Game_name =" ",Game_type = " ",Game_distributor = " "; //목록에 들어갈 변수들 초기화
-		int Game_playtime = 0;
-		double Game_price = 0;
 	    Scanner input= new Scanner(System.in);
 		
 	    //Menu
@@ -25,33 +22,16 @@ public class MenuManger {
 		    //interaction
 		    switch (num) {
 		    case 1:
-		        System.out.print("Game Name :");
-	    	    Game_name = input.next();
-	    	
-	    	    System.out.print("Game Type :");
-	    	    Game_type = input.next();
-	    	
-	    	    System.out.print("Game Playtime :");
-	    	    Game_playtime = input.nextInt();
-	    	
-	    	    System.out.print("Game Distributor :");
-	    	    Game_distributor = input.next();
-	    	
-	    	    System.out.print("Game Price :");
-	    	    Game_price = input.nextDouble();
+		        AddGame();
 	    	    input_time += 1;
 	    	    break;
 	       case 2:
 	    	   if (input_time == 0) {
-	    		    System.out.println("You must input informations about games before delte them");
+	    		    System.out.println("You must input informations about games before delete them");
 	    		    System.out.println(" ");
 	    		    break;
 	    	   }
-	    	   Game_name =" ";
-	    	   Game_type = " ";
-	    	   Game_distributor = " "; 
-	   		   Game_playtime = 0;
-	   		   Game_price = 0.0;
+	    	   DeleteGame();
 	           break;
 		  case 3:
 			  if (input_time == 0) {
@@ -59,35 +39,54 @@ public class MenuManger {
 	    		    System.out.println(" ");
 	    		    break;
 	    	  }
-			        System.out.print("Game Name :");
-	    	        Game_name = input.next();
-	    	        
-	    	        System.out.print("Game Type :");
-	    	        Game_type = input.next();
-	    	        
-	                System.out.print("Game Playtime :");
-	         	    Game_playtime = input.nextInt();
-	   
-	    	        System.out.print("Game Distributor :");
-	    	        Game_distributor = input.next();
-	    	 
-	    	        System.out.print("Game Price :");
-	    	        Game_price = input.nextDouble();
-	    	        break;
+			  EditGame();     
+	    	
 		  case 4:
 			  if (input_time == 0) {
 	    		    System.out.println("You must input informations about games before veiw them");
 	    		    System.out.println(" ");
 	    		    break;
 	    	  }
-			  System.out.println("Game Name :" + Game_name);
-			  System.out.println("Game Type :" + Game_type);
-			  System.out.println("Game Playtime :" + Game_playtime + " hour");
-			  System.out.println("Game Distributor :" + Game_distributor);
-			  System.out.println("Game Price :" + Game_price + " $");
-			  System.out.println(" ");
+		      ViewGame();
+		      break;
 		}
 	}
 
   }
+    public static void AddGame() {
+    	Scanner input = new Scanner(System.in);
+    	System.out.print("Game Name :");
+	    String Game_name = input.nextLine();	
+	    System.out.print("Game Type :");
+	    String Game_type = input.next();	
+	    System.out.print("Game Playtime :");
+	    int Game_playtime = input.nextInt();	
+	    System.out.print("Game Distributor :");
+	    String Game_distributor = input.next();	
+	    System.out.print("Game Price :");
+	    double Game_price = input.nextDouble();
+    }
+    public static void DeleteGame() {
+    	Scanner input = new Scanner(System.in);
+    	System.out.print("Game Name :");
+	    String Game_name = input.nextLine();	
+    	
+    	
+    }
+    
+    public static void EditGame() {
+    	Scanner input = new Scanner(System.in);
+    	System.out.print("Game Name :");
+	    String Game_name = input.nextLine();	
+    	
+    	
+    }
+   
+    public static void ViewGame() {
+    	Scanner input = new Scanner(System.in);
+    	System.out.print("Game Name :");
+	    String Game_name = input.nextLine();	
+    	
+    }
+    
 }
