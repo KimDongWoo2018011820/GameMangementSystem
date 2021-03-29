@@ -23,30 +23,13 @@ public class MenuManger {
 		    switch (num) {
 		    case 1:
 		        AddGame();
-	    	    input_time += 1;
 	    	    break;
 	       case 2:
-	    	   if (input_time == 0) {
-	    		    System.out.println("You must input informations about games before delete them");
-	    		    System.out.println(" ");
-	    		    break;
-	    	   }
 	    	   DeleteGame();
 	           break;
-		  case 3:
-			  if (input_time == 0) {
-	    		    System.out.println("You must input informations about games before edit them");
-	    		    System.out.println(" ");
-	    		    break;
-	    	  }
-			  EditGame();     
-	    	
+		  case 3:			  
+			  EditGame();     	    	
 		  case 4:
-			  if (input_time == 0) {
-	    		    System.out.println("You must input informations about games before veiw them");
-	    		    System.out.println(" ");
-	    		    break;
-	    	  }
 		      ViewGame();
 		      break;
 		}
