@@ -20,18 +20,19 @@ public class MenuManger {
 		    num = input.nextInt();
 		    
 		    //interaction
-		    switch (num) {
-		    case 1:
-		        AddGame();
-	    	    break;
+		   switch (num) {
+		   case 1:
+		       AddGame();
+	    	   break;
 	       case 2:
 	    	   DeleteGame();
 	           break;
-		  case 3:			  
-			  EditGame();     	    	
-		  case 4:
-		      ViewGame();
-		      break;
+		   case 3:
+			   EditGame();
+			   break;
+		   case 4:
+		       ViewGame();
+		       break;
 		}
 	}
 
@@ -68,7 +69,7 @@ public class MenuManger {
     public static void ViewGame() {
     	Scanner input = new Scanner(System.in);
     	System.out.print("Game Name :");
-	    String Game_name = input.nextLine();	
+	    String Game_name = input.nextLine();
     	
     }
     
