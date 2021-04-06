@@ -28,7 +28,7 @@ public class GameManger {
 	    	System.out.println("The Game has not been registered");
 	    	return;
 	    }
-	    if(game.name == Game_name) {
+	    if(game.name.equals( Game_name) ){
 	    	game = null;
 	    	System.out.println("The Game is deleted");    	
 	    } 	
@@ -43,7 +43,7 @@ public class GameManger {
 	    }	
     }
    
-    public  void ViewGame() {
+    public void ViewGame() {
     	System.out.print("Game Name :");
 	    String Game_name = input.next();
         if ( game.name.equals(Game_name)){
