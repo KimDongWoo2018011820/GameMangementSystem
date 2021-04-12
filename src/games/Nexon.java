@@ -1,4 +1,4 @@
-package gameinformation;
+package games;
 
 import java.util.Scanner;
 
@@ -20,9 +20,24 @@ public class Nexon extends Game {
 	    String distributor = input.next();
 	    this.setDistributor(distributor);
 	   
-	    System.out.print("Game Price :");
-	    double price = input.nextDouble();
-	    this.setPrice(price);
+	    String answer;
+	    for( int i = 1 ; i > 0 ; i ++) {
+	    	System.out.print("This platform games " +this.getName()+ " are Free? (y/n) :");
+		    answer = input.next();
+	    	
+		    if( answer.equals("y")|| answer.equals("Y")) {
+		    	this.setPrice(0.0);		
+	    		break;
+	    	}
+	    	else if(answer.equals("N")|| answer.equals("n")) {
+	    		this.setPrice(0.0);	
+	    		System.out.print("Game Price :");
+			 	double price = input.nextDouble();
+			 	this.setPrice(price);		    			    	
+	    		break;
+	    	}
+	    	
+	    }
 	}
 
 
