@@ -1,4 +1,4 @@
-package game;
+package gameinformation;
 
 public enum GameKinds {
 	Origin,
