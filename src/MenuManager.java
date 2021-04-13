@@ -1,10 +1,10 @@
 import java.util.Scanner;
 
-public class MenuManger {
+public class MenuManager {
 
 	public static void main(String[] args) {
 	    Scanner input= new Scanner(System.in);
-	    GameManger gameManger = new GameManger(input);
+	    GameManager gameManger = new GameManager(input);
 	    int num =0;
 		
 	    //Menu
@@ -13,7 +13,7 @@ public class MenuManger {
 		    System.out.println(" 1. Add Game");
 		    System.out.println(" 2. Delete Game");
 		    System.out.println(" 3. Edit Game");
-		    System.out.println(" 4. View Game");
+		    System.out.println(" 4. View Games");
 		    System.out.println(" 5. Exit");
 		    System.out.print("Select one number between 1-5 :");
 		    num = input.nextInt();
@@ -30,7 +30,7 @@ public class MenuManger {
 			   gameManger.EditGame();
 			   break;
 		   case 4:
-			   gameManger.ViewGame();
+			   gameManger.ViewGames();
 		       break;
 		}
 	}

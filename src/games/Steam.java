@@ -1,9 +1,9 @@
-package gameinformation;
+package games;
 
 import java.util.Scanner;
 
 public class Steam extends Game {
-	public void userinput(Scanner input) {
+	public void getUserinput(Scanner input) {
 		
 		System.out.print("Game Name :");
 	    String name = input.next();	
@@ -32,7 +32,7 @@ public class Steam extends Game {
 			    discount = input.nextDouble(); 
 	    		System.out.print("Price :");
 	    		double price = input.nextDouble();
-	    		this.setPrice(price*(1-discount)/(double)100);
+	    		this.setPrice(price*(100-discount)/(double)100);
 	    		break;
 	    	}
 	    	else if(answer.equals("N")|| answer.equals("n")) {

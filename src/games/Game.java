@@ -1,4 +1,4 @@
-package gameinformation;
+package games;
 import java.util.Scanner;
 
 public class Game {
@@ -7,7 +7,7 @@ public class Game {
 	protected String type;
 	protected int playtime;
 	protected String distributor;
-	double price;
+	protected double price;
 	
 	public Game() {
 		
@@ -129,7 +129,7 @@ public class Game {
 		
 	}
 	
-	public void userinput(Scanner input) {
+	public void getUserinput(Scanner input) {
 		System.out.print("Game Name :");
 	    String name = input.next();	
 	    this.setName(name);

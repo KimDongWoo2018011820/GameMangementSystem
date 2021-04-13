@@ -1,16 +1,16 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import game.Game;
-import game.Nexon;
-import game.Steam;
-import game.Ubisoft;
+import games.Game;
+import games.Nexon;
+import games.Steam;
+import games.Ubisoft;
 
-public class GameManger {
+public class GameManager {
 	ArrayList<Game> games =new ArrayList<Game>();
 	Scanner input;
 	
-	GameManger(Scanner input){
+	GameManager(Scanner input){
 		this.input =input;
 		
 	}
@@ -27,25 +27,25 @@ public class GameManger {
 			
 			if( kind == 1 ) {
 				game = new Game();
-				game.userinput(input);
+				game.getUserinput(input);
 				games.add(game);
 				break;	
 			}
 			else if ( kind == 2 ) {
 				game = new Steam();
-				game.userinput(input);
+				game.getUserinput(input);
 				games.add(game);
 				break;									
 			}
 			else if ( kind == 3) {
 				game = new Ubisoft();
-				game.userinput(input);
+				game.getUserinput(input);
 				games.add(game);
 				break;	
 			}
 			else if( kind ==4) {
 				game = new Nexon();
-				game.userinput(input);
+				game.getUserinput(input);
 				games.add(game);
 				break;	
 			}
@@ -66,9 +66,9 @@ public class GameManger {
 	    	}
 		     	
 	    }
-	    if (index > 0) {
+	    if (index >= 0) {
 	    	games.remove(index);
-	    	System.out.println("The GAME : " + Game_name+ "is deleted ");
+	    	System.out.println("The GAME : " + Game_name+ " is deleted ");
 	    	return;
 	    }
 	    else {
@@ -87,7 +87,7 @@ public class GameManger {
 		    	break;
 	    	}		    	    	
 	    }
-	    if (index > 0) {
+	    if (index >= 0) {
 	    	games.get(index).editgame();;
 	    	System.out.println("The GAME : " + Game_name+ "is Edited");
 	    	return;
