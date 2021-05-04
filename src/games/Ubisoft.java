@@ -27,6 +27,25 @@ public class Ubisoft extends Game {
 	    double price = input.nextDouble();
 	    this.setPrice(price);
 	}
+	public void printinfo() {
+		String skind = "no kins"; 
+		switch(this.platform) {
+		case Origin :
+			skind = "Origin";
+			break;
+		case Steam:
+			skind = "Steam";
+			break;
+		case Ubisoft :
+			skind = "Ubisoft";
+			break;
+		case Nexon:
+			skind = "Nexon";
+			break;
+		default :					
+		}
+		System.out.println("platform : "+skind+ " name : "+ name+" type : "+ type+" playtime : "+ playtime+" distributor : "+ distributor+" price : "+ price+"$");
+	}
 
 
 }
