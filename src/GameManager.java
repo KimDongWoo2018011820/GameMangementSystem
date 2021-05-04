@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import games.Game;
+import games.GameKinds;
 import games.Nexon;
 import games.Steam;
 import games.Ubisoft;
@@ -26,25 +27,25 @@ public class GameManager {
 			kind = input.nextInt();
 			
 			if( kind == 1 ) {
-				game = new Game();
+				game = new Game(GameKinds.Origin);
 				game.getUserinput(input);
 				games.add(game);
 				break;	
 			}
 			else if ( kind == 2 ) {
-				game = new Steam();
+				game = new Steam(GameKinds.Steam);
 				game.getUserinput(input);
 				games.add(game);
 				break;									
 			}
 			else if ( kind == 3) {
-				game = new Ubisoft();
+				game = new Ubisoft(GameKinds.Ubisoft);
 				game.getUserinput(input);
 				games.add(game);
 				break;	
 			}
 			else if( kind ==4) {
-				game = new Nexon();
+				game = new Nexon(GameKinds.Nexon);
 				game.getUserinput(input);
 				games.add(game);
 				break;	
