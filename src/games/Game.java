@@ -12,6 +12,7 @@ public class Game {
 	public Game() {
 		
 	}
+	
 	public Game ( String name ) {
 		this.name = name;
 	}
@@ -100,7 +101,7 @@ public class Game {
 			break;
 		default :					
 		}
-		System.out.println("platform "+skind+ " name : "+ name+" type : "+ type+" playtime : "+ playtime+" distributor : "+ distributor+" price : "+ price+"$");
+		System.out.println("platform : "+skind+ " name : "+ name+" type : "+ type+" playtime : "+ playtime+" distributor : "+ distributor+" price : "+ price+"$");
 	}
 	
 	public void editgame(){
