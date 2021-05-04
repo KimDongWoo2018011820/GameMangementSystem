@@ -3,6 +3,10 @@ package games;
 import java.util.Scanner;
 
 public class Nexon extends Game {
+	public Nexon ( GameKinds kind ) {
+		this.platform = kind;	
+	}
+	
 	public void getUserinput(Scanner input) {
 		System.out.print("Game Name :");
 	    String name = input.next();	
