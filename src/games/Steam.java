@@ -48,6 +48,31 @@ public class Steam extends Game {
 	    }
 	   
 	}
+	
+	public void printinfo() {
+		String skind = "no kinds"; 
+		switch(this.platform) {
+		case Origin :
+			skind = "Origin";
+			break;
+		case Steam:
+			skind = "Steam";
+			break;
+		case Ubisoft :
+			skind = "Ubisoft";
+			break;
+		case Nexon:
+			skind = "Nexon";
+			break;
+		default :					
+		}
+		if( answer.equals("y")|| answer.equals("Y")) {
+			System.out.println("platform :"+skind+ " name : "+ name+" type : "+ type+" playtime : "+ playtime+" distributor : "+ distributor+" price : "+ price+"$ " +discount+ " % sales");
+		}
+		else {
+			System.out.println("platform :"+skind+ " name : "+ name+" type : "+ type+" playtime : "+ playtime+" distributor : "+ distributor+" price : "+ price+"$");
+		}
+	}
 
 
 }
