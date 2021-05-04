@@ -3,6 +3,9 @@ package games;
 import java.util.Scanner;
 
 public class Ubisoft extends Game {
+	public Ubisoft( GameKinds kind ) {
+		this.platform = kind;	
+	}
 	public void getUserinput(Scanner input) {
 		System.out.print("Game Name :");
 	    String name = input.next();	
