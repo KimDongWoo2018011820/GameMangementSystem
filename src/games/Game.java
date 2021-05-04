@@ -2,7 +2,7 @@ package games;
 import java.util.Scanner;
 
 public class Game {
-	protected GameKinds kind = GameKinds.Origin;
+	protected GameKinds platform;
 	protected String name;
 	protected String type;
 	protected int playtime;
@@ -12,6 +12,12 @@ public class Game {
 	public Game() {
 		
 	}
+	public Game ( String name ) {
+		this.name = name;
+	}
+	public Game ( GameKinds kind ) {
+		this.platform = kind;	
+	}
 	
 	public Game ( String name , String type, int playtime , String distributor , double price) {
 		this.name = name;
@@ -20,13 +26,21 @@ public class Game {
 		this.distributor = distributor;
 		this.price = price;
 	}
+	public Game ( GameKinds kind ,String name , String type, int playtime , String distributor , double price) {
+		this.platform = kind;
+		this.name = name;
+		this.type = type;
+		this.playtime = playtime;
+		this.distributor = distributor;
+		this.price = price;
+	}
 	
 	public GameKinds getKind() {
-		return kind;
+		return platform;
 	}
 
 	public void setKind(GameKinds kind) {
-		this.kind = kind;
+		this.platform = kind;
 	}
 
 	public String getName() {
@@ -70,11 +84,23 @@ public class Game {
 	}
 	
 	public void printinfo() {
-		System.out.println("name : "+ name);
-		System.out.println("type : "+ type);
-		System.out.println("playtime : "+ playtime);
-		System.out.println("distributor : "+ distributor);
-		System.out.println("price : "+ price+"$");
+		String skind = "no kins"; 
+		switch(this.platform) {
+		case Origin :
+			skind = "Origin";
+			break;
+		case Steam:
+			skind = "Steam";
+			break;
+		case Ubisoft :
+			skind = "Ubisoft";
+			break;
+		case Nexon:
+			skind = "Nexon";
+			break;
+		default :					
+		}
+		System.out.println("platform "+skind+ " name : "+ name+" type : "+ type+" playtime : "+ playtime+" distributor : "+ distributor+" price : "+ price+"$");
 	}
 	
 	public void editgame(){
