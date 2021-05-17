@@ -73,8 +73,6 @@ public class Steam extends Game implements GameInput {
 			System.out.println("platform :"+skind+ " name : "+ name+" type : "+ type+" playtime : "+ playtime+" distributor : "+ distributor+" price : "+ price+"$");
 		}
 	}
-	
-	
 
 
 }
