@@ -1,5 +1,9 @@
 package games;
+import java.util.InputMismatchException;
 import java.util.Scanner;
+
+import exception.DistributorNameException;
+import exception.NameFormException;
 
 public abstract class Game implements GameInput{
 	protected GameKinds platform;
@@ -48,7 +52,10 @@ public abstract class Game implements GameInput{
 		return name;
 	}
 
-	public void setName(String name) {
+	public void setName(String name) throws NameFormException {
+		if(checknameform(name)==1) {
+			throw new NameFormException();
+		}
 		this.name = name;
 	}
 
@@ -72,8 +79,25 @@ public abstract class Game implements GameInput{
 		return distributor;
 	}
 
-	public void setDistributor(String distributor) {
+	public void setDistributor(String distributor) throws DistributorNameException{
+		if( checknameform(distributor)==1) {
+			throw new DistributorNameException();
+		}
 		this.distributor = distributor;
+		
+	}
+	public int checknameform(String name) {
+		int count =0;
+		char list[]= name.toCharArray();
+		for( int i =0; i< name.length();i++) {
+			if(list[i]>='0'&&list[i]<='9') {
+				count +=1;
+			}
+		}
+		if(count == name.length()) {
+			return 1;
+		}
+		return 0;
 	}
 
 	public double getPrice() {
@@ -111,9 +135,17 @@ public abstract class Game implements GameInput{
 	
 	
 	public void setName(Scanner input) {
-		System.out.print("Name :");
-		String name = input.next();
-		this.setName(name);
+		int i=0;
+		while(i==0) {
+			try {
+				System.out.print("Name :");
+				String name = input.next();
+				this.setName(name);
+				break;
+			}catch(NameFormException e) {
+				System.out.println("There are no games whose names are made up of numbers.");
+			}
+		}
 	}
 	public void setType(Scanner input) {
 		System.out.print("Type:");
@@ -121,23 +153,41 @@ public abstract class Game implements GameInput{
 	    this.setType(type);
 	}
 	public void setPlaytime(Scanner input) {
-		System.out.print("Playtime :");
-	    int playtime = input.nextInt();
-	    this.setPlaytime(playtime);
+		int i =0;
+		while(i==0)
+			try {
+				System.out.print("Playtime :");
+				int playtime = input.nextInt();
+				this.setPlaytime(playtime);
+				break;
+			}catch(InputMismatchException e) {
+				System.out.println("Please input number");
+				if(input.hasNext()) {
+					 input.next();
+				 }
+			}
 	}
+	
+	
+	
 	public void setDistributor(Scanner input) {
-		System.out.print("Distributor :");
-		String distributor = input.next();
-		this.setDistributor(distributor);
+		int i =0;
+		while(i!=10) {
+			try {
+				System.out.print("Distributor :");
+				String distributor = input.next();
+				this.setDistributor(distributor);
+				break;
+			}catch(DistributorNameException e) {
+				System.out.println("There are no Distributor whose names are made up of numbers.");
+			}
+		}
 	}
 	public void setPrice(Scanner input) {
 		System.out.print("Price :");
 		double price = input.nextDouble();
 		this.setPrice(price);
 	}
-	
-	
-	
 	
 	
 	public void editinfo(int num) {
