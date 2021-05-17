@@ -239,6 +239,5 @@ public abstract class Game implements GameInput{
 		}
 		return skind;
 	}
-	//ios
 
 }
