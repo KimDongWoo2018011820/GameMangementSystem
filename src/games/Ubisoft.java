@@ -2,7 +2,7 @@ package games;
 
 import java.util.Scanner;
 
-public class Ubisoft extends Game {
+public class Ubisoft extends Game implements GameInput {
 	public Ubisoft( GameKinds kind ) {
 		this.platform = kind;	
 	}
@@ -27,6 +27,9 @@ public class Ubisoft extends Game {
 	    double price = input.nextDouble();
 	    this.setPrice(price);
 	}
+	
+	
+	
 	public void printinfo() {
 		String skind = "no kins"; 
 		switch(this.platform) {
@@ -46,6 +49,6 @@ public class Ubisoft extends Game {
 		}
 		System.out.println("platform : "+skind+ " name : "+ name+" type : "+ type+" playtime : "+ playtime+" distributor : "+ distributor+" price : "+ price+"$");
 	}
-
+	
 
 }

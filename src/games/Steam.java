@@ -2,7 +2,7 @@ package games;
 
 import java.util.Scanner;
 
-public class Steam extends Game {
+public class Steam extends Game implements GameInput {
 	protected String answer;
 	protected double discount;
 	

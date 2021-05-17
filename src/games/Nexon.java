@@ -2,7 +2,7 @@ package games;
 
 import java.util.Scanner;
 
-public class Nexon extends Game {
+public class Nexon extends Game implements GameInput {
 	protected String answer;
 	public Nexon ( GameKinds kind ) {
 		this.platform = kind;	

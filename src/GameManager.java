@@ -2,13 +2,15 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 import games.Game;
+import games.GameInput;
 import games.GameKinds;
 import games.Nexon;
+import games.Origin;
 import games.Steam;
 import games.Ubisoft;
 
 public class GameManager {
-	ArrayList<Game> games =new ArrayList<Game>();
+	ArrayList<GameInput> games =new ArrayList<GameInput>();
 	Scanner input;
 	
 	GameManager(Scanner input){
@@ -17,7 +19,7 @@ public class GameManager {
 	}
 	public void AddGame() {
 		int kind ; 
-		Game game;
+		GameInput gameinput;
 		for( int i = 1 ;  i > 0 ; i++ ) {
 			System.out.println("1. Origin ");
 			System.out.println("2. Steam ");
@@ -27,27 +29,27 @@ public class GameManager {
 			kind = input.nextInt();
 			
 			if( kind == 1 ) {
-				game = new Game(GameKinds.Origin);
-				game.getUserinput(input);
-				games.add(game);
+				gameinput = new Origin(GameKinds.Origin);
+				gameinput.getUserinput(input);
+				games.add(gameinput);
 				break;	
 			}
 			else if ( kind == 2 ) {
-				game = new Steam(GameKinds.Steam);
-				game.getUserinput(input);
-				games.add(game);
+				gameinput = new Steam(GameKinds.Steam);
+				gameinput.getUserinput(input);
+				games.add(gameinput);
 				break;									
 			}
 			else if ( kind == 3) {
-				game = new Ubisoft(GameKinds.Ubisoft);
-				game.getUserinput(input);
-				games.add(game);
+				gameinput = new Ubisoft(GameKinds.Ubisoft);
+				gameinput.getUserinput(input);
+				games.add(gameinput);
 				break;	
 			}
 			else if( kind ==4) {
-				game = new Nexon(GameKinds.Nexon);
-				game.getUserinput(input);
-				games.add(game);
+				gameinput = new Nexon(GameKinds.Nexon);
+				gameinput.getUserinput(input);
+				games.add(gameinput);
 				break;	
 			}
 			else {
