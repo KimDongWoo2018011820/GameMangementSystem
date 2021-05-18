@@ -86,19 +86,6 @@ public abstract class Game implements GameInput{
 		this.distributor = distributor;
 		
 	}
-	public int checknameform(String name) {
-		int count =0;
-		char list[]= name.toCharArray();
-		for( int i =0; i< name.length();i++) {
-			if(list[i]>='0'&&list[i]<='9') {
-				count +=1;
-			}
-		}
-		if(count == name.length()) {
-			return 1;
-		}
-		return 0;
-	}
 
 	public double getPrice() {
 		return price;
@@ -184,9 +171,20 @@ public abstract class Game implements GameInput{
 		}
 	}
 	public void setPrice(Scanner input) {
-		System.out.print("Price :");
-		double price = input.nextDouble();
-		this.setPrice(price);
+		int i=0;
+		while(i==0) {
+			try {
+				System.out.print("Price :");
+				double price = input.nextDouble();
+				this.setPrice(price);
+				break;
+			}catch(InputMismatchException e) {
+				System.out.println("Pleas input number");
+				 if(input.hasNext()) {
+					 input.next();
+				 }
+			}
+		}
 	}
 	
 	
@@ -238,6 +236,20 @@ public abstract class Game implements GameInput{
 		default :					
 		}
 		return skind;
+	}
+	
+	public int checknameform(String name) {
+		int count =0;
+		char list[]= name.toCharArray();
+		for( int i =0; i< name.length();i++) {
+			if(list[i]>='0'&&list[i]<='9') {
+				count +=1;
+			}
+		}
+		if(count == name.length()) {
+			return 1;
+		}
+		return 0;
 	}
 
 }
