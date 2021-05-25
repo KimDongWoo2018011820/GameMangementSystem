@@ -1,2 +1,2 @@
-5월 25, 2021 10:26:33 오전 log.EventLogger log
-INFO: Add students
+5월 25, 2021 11:55:37 오전 log.EventLogger log
+INFO: View students

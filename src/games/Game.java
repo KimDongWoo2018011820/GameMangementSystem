@@ -1,11 +1,17 @@
 package games;
+import java.io.Serializable;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 import exception.DistributorNameException;
 import exception.NameFormException;
+import log.EventLogger;
 
-public abstract class Game implements GameInput{
+public abstract class Game implements GameInput, Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7491748519103648597L;
 	protected GameKinds platform;
 	protected String name;
 	protected String type;
@@ -97,7 +103,7 @@ public abstract class Game implements GameInput{
 	
 	public abstract void printinfo();
 	
-	public void editgame(){
+	public void editgame(EventLogger logger){
 		Scanner input = new Scanner(System.in);
 		int num = 0;
 		while(true) {
@@ -106,7 +112,7 @@ public abstract class Game implements GameInput{
 			if( num == 6) {
 				break;
 			}
-			editinfo(num);
+			editinfo(num,logger);
 		}
 		
 	}
@@ -121,31 +127,34 @@ public abstract class Game implements GameInput{
 	}
 	
 	
-	public void setName(Scanner input) {
+	public void setName(Scanner input,EventLogger logger) {
 		int i=0;
 		while(i==0) {
 			try {
 				System.out.print("Name :");
 				String name = input.next();
 				this.setName(name);
+				logger.log("InputName : "+name);
 				break;
 			}catch(NameFormException e) {
 				System.out.println("There are no games whose names are made up of numbers.");
 			}
 		}
 	}
-	public void setType(Scanner input) {
+	public void setType(Scanner input,EventLogger logger) {
 		System.out.print("Type:");
 	    String type = input.next();
 	    this.setType(type);
+	    logger.log("InputType : "+type);
 	}
-	public void setPlaytime(Scanner input) {
+	public void setPlaytime(Scanner input,EventLogger logger) {
 		int i =0;
 		while(i==0)
 			try {
 				System.out.print("Playtime :");
 				int playtime = input.nextInt();
 				this.setPlaytime(playtime);
+				logger.log("InputPlaytime : "+playtime);
 				break;
 			}catch(InputMismatchException e) {
 				System.out.println("Please input number");
@@ -157,26 +166,28 @@ public abstract class Game implements GameInput{
 	
 	
 	
-	public void setDistributor(Scanner input) {
+	public void setDistributor(Scanner input,EventLogger logger) {
 		int i =0;
 		while(i!=10) {
 			try {
 				System.out.print("Distributor :");
 				String distributor = input.next();
 				this.setDistributor(distributor);
+				logger.log("InputDistributor : "+distributor);
 				break;
 			}catch(DistributorNameException e) {
 				System.out.println("There are no Distributor whose names are made up of numbers.");
 			}
 		}
 	}
-	public void setPrice(Scanner input) {
+	public void setPrice(Scanner input,EventLogger logger) {
 		int i=0;
 		while(i==0) {
 			try {
 				System.out.print("Price :");
 				double price = input.nextDouble();
 				this.setPrice(price);
+				logger.log("InputPrice :  "+price);
 				break;
 			}catch(InputMismatchException e) {
 				System.out.println("Pleas input number");
@@ -188,34 +199,34 @@ public abstract class Game implements GameInput{
 	}
 	
 	
-	public void editinfo(int num) {
+	public void editinfo(int num,EventLogger logger) {
 		Scanner input = new Scanner(System.in);
 		switch(num) {
 		case 1:
-			setName( input);
+			setName( input,logger);
 			break;
 		case 2:
-			setType( input);
+			setType( input,logger);
 			break;
 		case 3:
-			setPlaytime( input);
+			setPlaytime( input,logger);
 			break;
 		case 4:
-			setDistributor(input);
+			setDistributor(input,logger);
 			break;
 		case 5:
-			setPrice(input);
+			setPrice(input,logger);
 			break;
 		}
 		
 		
 	}
-	public void getUserinput(Scanner input) {
-		setName(input);
-		setType(input);
-		setPlaytime( input);
-		setDistributor(input);
-		setPrice(input);
+	public void getUserinput(Scanner input,EventLogger logger) {
+		setName(input,logger);
+		setType(input,logger);
+		setPlaytime( input,logger);
+		setDistributor(input,logger);
+		setPrice(input,logger);
 	}
 	
 	public String GamekindstoString() {

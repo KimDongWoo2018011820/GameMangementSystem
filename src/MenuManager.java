@@ -1,3 +1,9 @@
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -9,8 +15,12 @@ public class MenuManager {
 	public static void main(String[] args) {
 		
 	    Scanner input= new Scanner(System.in);
-	    GameManager gameManger = new GameManager(input);
-	    selectMenu(input,gameManger);
+	    GameManager gameManager = getObject("GameManager.ser");
+	    if(gameManager == null) {
+	    	gameManager = new GameManager(input);
+	    }
+	    selectMenu(input,gameManager);
+	    putObject(gameManager,"GameManager.ser");
   }
   public static void selectMenu(Scanner input,GameManager gameManger) {
 		  int num =0;
@@ -21,20 +31,20 @@ public class MenuManager {
 				num = input.nextInt();
 				 switch (num) {
 				   case 1:
-					   gameManger.AddGame();
-					   logger.log("Add students");
+					   gameManger.AddGame(logger);
+					   logger.log("Add Games");
 			    	   break;
 			       case 2:
-			    	   gameManger.DeleteGame();
-			    	   logger.log("Delete students");
+			    	   gameManger.DeleteGame(logger);
+			    	   logger.log("Delete Games");
 			           break;
 				   case 3:
-					   gameManger.EditGame();
-					   logger.log("Edit students");
+					   gameManger.EditGame(logger);
+					   logger.log("Edit Games");
 					   break;
 				   case 4:
 					   gameManger.ViewGames();
-					   logger.log("View students");
+					   logger.log("View Games");
 				       break;
 				   default:
 					   logger.log("EXIT");
@@ -60,6 +70,51 @@ public class MenuManager {
 	    System.out.print("Select one number between 1-5 :");
 	  
   }
-   
+  
+  public static GameManager getObject(String filename){
+	  GameManager gameManager = null;
+	  try {
+		FileInputStream file = new FileInputStream(filename);
+		ObjectInputStream in = new ObjectInputStream(file);
+		
+		
+		gameManager = (GameManager) in.readObject();
+		
+		in.close();
+		file.close();
+	} catch (FileNotFoundException e) {
+		return gameManager;
+	} catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	} catch (ClassNotFoundException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	 
+	return gameManager;
+	  
+  }
+  
+  public static void putObject(GameManager gameManager,String filename){
+	  try {
+		FileOutputStream file = new FileOutputStream(filename);
+		ObjectOutputStream out = new ObjectOutputStream(file);
+		
+		
+		out.writeObject(gameManager);
+		
+		out.close();
+		file.close();
+	} catch (FileNotFoundException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	} catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	
+	  
+  }
     
 }

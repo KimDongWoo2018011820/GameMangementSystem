@@ -2,16 +2,18 @@ package games;
 
 import java.util.Scanner;
 
+import log.EventLogger;
+
 public class Ubisoft extends Game{
 	public Ubisoft( GameKinds kind ) {
 		this.platform = kind;	
 	}
-	public void getUserinput(Scanner input) {
-		setName(input);
-		setType(input);
-		setPlaytime( input);
-		setDistributor(input);
-		setPrice(input);
+	public void getUserinput(Scanner input,EventLogger logger) {
+		setName(input,logger);
+		setType(input,logger);
+		setPlaytime( input,logger);
+		setDistributor(input,logger);
+		setPrice(input,logger);
 	}
 	
 	
