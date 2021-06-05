@@ -7,6 +7,7 @@ import java.io.ObjectOutputStream;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import gui.WindowFrame;
 import log.EventLogger;
 
 public class MenuManager {
@@ -19,6 +20,7 @@ public class MenuManager {
 	    if(gameManager == null) {
 	    	gameManager = new GameManager(input);
 	    }
+	    WindowFrame frame = new WindowFrame(gameManager);
 	    selectMenu(input,gameManager);
 	    putObject(gameManager,"GameManager.ser");
   }
