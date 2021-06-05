@@ -15,7 +15,7 @@ public class MenuManager {
 	static EventLogger logger = new EventLogger("log.txt");
 
 	public static void main(String[] args) {
-		
+		// i love u
 	    Scanner input= new Scanner(System.in);
 	    GameManager gameManager = getObject("GameManager.ser");
 	    if(gameManager == null) {
