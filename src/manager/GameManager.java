@@ -19,13 +19,9 @@ public class GameManager implements Serializable {
 	 */
 	private static final long serialVersionUID = 2056623188555812622L;
 	ArrayList<GameInput> games =new ArrayList<GameInput>();
-	transient Scanner input;
-	
-	GameManager(Scanner input){
-		this.input =input;
-		
-	}
+
 	public void AddGame(EventLogger logger) {
+		Scanner input = new Scanner(System.in);
 		int kind = -1; ; 
 		for( int i = 1 ;  i > 0 ; i++ ) {
 			viewGameplatform();
@@ -45,6 +41,7 @@ public class GameManager implements Serializable {
 		}
     }
 	public int Kindselect(int kind,EventLogger logger) {
+		Scanner input = new Scanner(System.in);
 		GameInput gameinput;
 		switch(kind) {
 		case 1:
@@ -84,6 +81,7 @@ public class GameManager implements Serializable {
 		System.out.println("4. Nexon");
 	}
     public void DeleteGame(EventLogger logger) {
+    	Scanner input = new Scanner(System.in);
     	System.out.print("Game Name :");
 	    String Game_name = input.next();
 	    int index = findGameindex(Game_name);
@@ -116,6 +114,7 @@ public class GameManager implements Serializable {
     }
     
     public void EditGame(EventLogger logger) {
+    	Scanner input = new Scanner(System.in);
     	System.out.print("Game Name :");
 	    String Game_name = input.next();
 	    int index = findGameindex(Game_name);

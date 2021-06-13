@@ -21,7 +21,7 @@ public class MenuManager {
 	    Scanner input= new Scanner(System.in);
 	    GameManager gameManager = getObject("GameManager.ser");
 	    if(gameManager == null) {
-	    	gameManager = new GameManager(input);
+	    	gameManager = new GameManager();
 	    }
 	    WindowFrame frame = new WindowFrame(gameManager);
 	    selectMenu(input,gameManager);
