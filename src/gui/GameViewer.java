@@ -20,6 +20,41 @@ public class GameViewer extends JPanel {
 	WindowFrame frame;
 	GameManager gamemanager;
 	
+	public GameManager getGamemanager() {
+		return gamemanager;
+	}
+
+	public void setGamemanager(GameManager gamemanager) {
+		this.gamemanager = gamemanager;
+		this.removeAll();
+		
+		DefaultTableModel model = new DefaultTableModel();
+		model.addColumn("Name");
+		model.addColumn("Type");
+		model.addColumn("Playtime");
+		model.addColumn("Distributor");
+		model.addColumn("Price");
+		
+		JTable table = new JTable(model);
+		JScrollPane sp = new JScrollPane(table);
+		JButton b1 = new JButton("Back");
+		b1.addActionListener(new BackListener(this.frame));
+		
+		for( int i =0; i <gamemanager.size();i++) {
+			Vector row = new Vector();
+			GameInput gameinput = gamemanager.get(i);
+			row.add(gameinput.getName());
+			row.add(gameinput.getType());
+			row.add(gameinput.getPlaytime());
+			row.add(gameinput.getDistributor());
+			row.add(gameinput.getPrice());
+			model.addRow(row);
+		}
+		
+		this.add(sp,BorderLayout.CENTER);
+		this.add(b1,BorderLayout.SOUTH);
+	}
+
 	public GameViewer(WindowFrame frame, GameManager gamemanager){
 		this.frame =frame;
 		this.gamemanager = gamemanager;

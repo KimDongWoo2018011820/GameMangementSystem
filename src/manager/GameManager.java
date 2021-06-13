@@ -20,6 +20,11 @@ public class GameManager implements Serializable {
 	private static final long serialVersionUID = 2056623188555812622L;
 	ArrayList<GameInput> games =new ArrayList<GameInput>();
 
+	
+	public void AddGame(GameInput gameinput) {
+		this.games.add(gameinput);
+	}
+	
 	public void AddGame(EventLogger logger) {
 		Scanner input = new Scanner(System.in);
 		int kind = -1; ; 

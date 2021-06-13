@@ -10,6 +10,7 @@ import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
 import listener.BackListener;
+import listener.GameAddListener;
 
 public class GameAdder extends JPanel{
 	WindowFrame frame;
@@ -53,7 +54,7 @@ public class GameAdder extends JPanel{
 		SpringUtilities.makeCompactGrid(panel, 5,2, 6, 6, 6, 6);
 		
 		JButton b1 = new JButton("ADD");
-		b1.addActionListener(new BackListener(this.frame));
+		b1.addActionListener(new GameAddListener(this.frame.gamemanager,fieldName,fieldType, fieldPlaytime,fieldDistributor,fieldPrice) );
 		JButton b2 = new JButton("Back");
 		b2.addActionListener(new BackListener(this.frame));
 	
