@@ -6,13 +6,13 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 
 import gui.GameAdder;
-import gui.GameViewer;
+import gui.MenuSelection;
 import gui.WindowFrame;
 
-public class ButtonAddListener implements ActionListener{
-	WindowFrame frame;
+public class BackListener implements ActionListener {
+WindowFrame frame;
 	
-	public ButtonAddListener(WindowFrame frame) {
+	public BackListener(WindowFrame frame) {
 		this.frame= frame;
 	}
 	
@@ -20,9 +20,8 @@ public class ButtonAddListener implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		JButton b = (JButton) e.getSource();
-		GameAdder gameadder = frame.getGameadd(); 
-		frame.setupPanel(gameadder);
+		MenuSelection menu = frame.getMenu(); 
+		frame.setupPanel(menu);
 	}
-	
 
 }

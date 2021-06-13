@@ -134,12 +134,21 @@ public class GameManager implements Serializable {
 	    	logger.log("The Game : "+Game_name+" has not been registered");
 	    }
     }
+    
    
     public void ViewGames() {
         for( int i = 0 ;  i < games.size(); i++) {
         	games.get(i).printinfo();
         }
     	
+    }
+   
+    public int size() {
+    	return this.games.size();
+    }
+    
+    public GameInput get(int index) {
+    	return (GameInput) games.get(index);
     }
 
 }

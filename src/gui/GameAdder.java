@@ -1,5 +1,7 @@
 package gui;
 
+import java.awt.BorderLayout;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -7,11 +9,14 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
+import listener.BackListener;
+
 public class GameAdder extends JPanel{
 	WindowFrame frame;
 	
 	public GameAdder(WindowFrame frame) {
 		this.frame = frame;
+		this.setLayout(new BorderLayout());
 		JPanel panel = new JPanel();
 		panel.setLayout(new SpringLayout());
 		
@@ -47,8 +52,14 @@ public class GameAdder extends JPanel{
 		
 		SpringUtilities.makeCompactGrid(panel, 5,2, 6, 6, 6, 6);
 		
+		JButton b1 = new JButton("ADD");
+		b1.addActionListener(new BackListener(this.frame));
+		JButton b2 = new JButton("Back");
+		b2.addActionListener(new BackListener(this.frame));
 	
-		this.add(panel);
+		this.add(panel,BorderLayout.CENTER);
+		this.add(b1,BorderLayout.NORTH);
+		this.add(b2,BorderLayout.SOUTH);
 		
 	}
 

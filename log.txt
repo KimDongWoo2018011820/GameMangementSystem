@@ -1,4 +1,0 @@
-6월 05, 2021 6:33:25 오후 log.EventLogger log
-INFO: View Games
-6월 05, 2021 6:33:27 오후 log.EventLogger log
-INFO: EXIT

@@ -10,6 +10,8 @@ import java.util.Scanner;
 
 import gui.WindowFrame;
 import log.EventLogger;
+import manager.GameManager;
+
 
 public class MenuManager {
 	static EventLogger logger = new EventLogger("log.txt");

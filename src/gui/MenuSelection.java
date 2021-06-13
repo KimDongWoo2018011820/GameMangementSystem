@@ -9,6 +9,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import listener.ButtonAddListener;
+import listener.ButtonDeleteListener;
+import listener.ButtonEditListener;
 import listener.ButtonViewListener;
 
 public class MenuSelection extends JPanel{
@@ -31,7 +33,10 @@ public class MenuSelection extends JPanel{
 		JButton b5 = new JButton("5. EXIT MENU");
 		
 		b1.addActionListener(new ButtonAddListener(frame));
+		b2.addActionListener(new ButtonDeleteListener(frame));
+		b3.addActionListener(new ButtonEditListener(frame));
 		b4.addActionListener(new ButtonViewListener(frame));
+		
 		
 		
 		panel1.add(label1);

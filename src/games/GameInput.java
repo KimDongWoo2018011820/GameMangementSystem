@@ -9,6 +9,12 @@ public interface GameInput {
 	public void getUserinput(Scanner input,EventLogger logger);
 	
 	public String getName();
+	public String getType();
+	public String getDistributor();
+	public double getPrice();
+	public int getPlaytime();
+	
+
 	
 	public void editgame(EventLogger logger);
 	

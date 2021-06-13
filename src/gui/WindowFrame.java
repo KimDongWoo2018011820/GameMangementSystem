@@ -10,15 +10,23 @@ public class WindowFrame extends JFrame {
 	MenuSelection menu;
 	GameAdder gameadd;
 	GameViewer gameviewer;
+	GameDelete gamedelete;
+	GameEdit   gameedit;
 	
+
+
+
 	public WindowFrame(GameManager gameManager) {
 		this.setSize(500,400);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	
 		this.gamemanager = gameManager;
 	
 		this.menu = new MenuSelection(this);
 		this.gameadd = new GameAdder(this);
-		this.gameviewer = new GameViewer(this);
+		this.gameviewer = new GameViewer(this,this.gamemanager);
+		this.gamedelete = new GameDelete(this);
+		this.gameedit = new GameEdit(this);
 		this.setupPanel(menu);
 		
 	
@@ -26,6 +34,8 @@ public class WindowFrame extends JFrame {
 	}
 	
 	
+
+
 	public MenuSelection getMenu() {
 		return menu;
 	}
@@ -44,6 +54,24 @@ public class WindowFrame extends JFrame {
 	public void setGameviewer(GameViewer gameviewer) {
 		this.gameviewer = gameviewer;
 	}
+	
+	public GameDelete getGamedelete() {
+		return gamedelete;
+	}
+
+
+	public void setGamedelete(GameDelete gamedelete) {
+		this.gamedelete = gamedelete;
+	}
+	
+	public GameEdit getGameedit() {
+		return gameedit;
+	}
+
+	public void setGameedit(GameEdit gameedit) {
+		this.gameedit = gameedit;
+	}
+
 	
 	
 	public void setupPanel(JPanel panel){
